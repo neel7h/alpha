@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,chrome=1">
+    <title>Welcome to CAST Dashboards</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport"
+          content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,target-densityDpi=device-dpi"/>
+    <link rel="shortcut icon" type="image/x-icon" href="engineering/resources/images/favicon-engineering.ico"/>
+    <link rel="apple-touch-icon" href="engineering/resources/images/touchico-engineering.png"/>
+
+    <style>
+        @font-face {
+            font-family: 'osExtraBold';
+            src: url('engineering/stylesheets/icomoon/fonts/oseb.eot?-g8cks7');
+            src: url('engineering/stylesheets/icomoon/fonts/oseb.eot?#iefix-g8cks7') format('embedded-opentype'),
+            url('engineering/stylesheets/icomoon/fonts/oseb.woff?-g8cks7') format('woff'),
+            url('engineering/stylesheets/icomoon/fonts/oseb.ttf?-g8cks7') format('truetype'),
+            url('engineering/stylesheets/icomoon/fonts/oseb.svg?-g8cks7#oseb') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'osLight';
+            src: url('engineering/stylesheets/icomoon/fonts/osl.eot?-g8cks7');
+            src: url('engineering/stylesheets/icomoon/fonts/osl.eot?#iefix-g8cks7') format('embedded-opentype'),
+            url('engineering/stylesheets/icomoon/fonts/osl.woff?-g8cks7') format('woff'),
+            url('engineering/stylesheets/icomoon/fonts/osl.ttf?-g8cks7') format('truetype'),
+            url('engineering/stylesheets/icomoon/fonts/osl.svg?-g8cks7#osl') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'raiders';
+            src: url("engineering/stylesheets/icomoon/fonts/rd.eot");
+            src: url("engineering/stylesheets/icomoon/fonts/rd.eot") format("embedded-opentype"),
+            url("engineering/stylesheets/icomoon/fonts/rd.woff") format("woff"),
+            url("engineering/stylesheets/icomoon/fonts/rd.ttf") format("truetype"),
+            url("engineering/stylesheets/icomoon/fonts/rd.svg") format("svg");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .login-aad {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 50%;
+            background: #35393c url(portal/stylesheets/screen/login/login_aad_bg_dark_portal.jpg) no-repeat center;
+            background-size: 100% 100%;
+        }
+        .login-sd {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 50%;
+            background: #35393c url(security/stylesheets/screen/login/login_aad_bg_dark.jpg) no-repeat center;
+            background-size: 100% 100%;
+        }
+        .login-aed {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            right: 100%;
+            background: #35393c url(portal/stylesheets/screen/login/login_aed_bg_dark_portal.jpg) no-repeat center;
+            background-size: 100% 100%;
+            width: 50%;
+            height: 100%;
+        }
+
+        .outer {
+            display: table;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .inner {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        .aad-logo {
+            display: block;
+            width: 118px;
+            height: 118px;
+            margin: 0 auto;
+            background: url(portal/stylesheets/screen/login/aad-logo-grey.svg) no-repeat left;
+            background-size: 118px;
+            opacity: 0.5;
+        }
+        .sd-logo {
+            display: block;
+            width: 148px;
+            height: 118px;
+            margin: 0 auto;
+            background: url(security/stylesheets/screen/login/security_logo_gray.svg) no-repeat left;
+            background-size: 157px;
+            opacity: 0.5;
+        }
+
+        .aed-logo {
+            display: block;
+            width: 118px;
+            height: 118px;
+            margin: 0 auto;
+            background: url(engineering/stylesheets/screen/login/aed-logo-grey.svg) no-repeat left;
+            background-size: 118px;
+            opacity: 0.5;
+        }
+
+        .title-block {
+            max-width: 403px;
+            margin: 26px auto;
+            text-align: center;
+        }
+        .title-block h1 {
+            font-family: 'osLight';
+            color: #b8b9b9;
+            text-transform: uppercase;
+            font-size: 1.6em;
+            font-weight: normal;
+            line-height: normal;
+            letter-spacing: 0px;
+        }
+        .title-block h1 em {
+            display: block;
+            font-family:"raiders";
+            font-style: normal;
+            font-weight: 100;
+        }
+        .title-block.aad-title h1 em span {
+            color: #00a8ff;
+        }
+        .title-block.sd-title h1 em span {
+            color: #00a8ff;
+        }
+        .title-block.aed-title h1 em span {
+            color: #f00041;
+        }
+
+        .text-block {
+            margin: 0 auto;
+            text-align: justify;
+            padding: 5px 0;
+            width: 372px;
+            font-family: 'osLight';
+        }
+
+        .text-block p {
+            color: #ababab;
+        }
+
+        .access-actions {
+            font-family: "osExtraBold";
+            cursor: pointer;
+            text-transform: uppercase;
+            color: #9a9c9c;
+            border: 2px solid #9a9c9c;
+            padding: 4px 20px 4px 20px;
+            line-height: 32px;
+            text-align: center;
+            margin: 70px auto 20px auto;
+            width: 100px;
+            display: block;
+            text-decoration: none;
+            font-size: 0.875em;
+            -webkit-transition:all 200ms ease-out;
+            -moz-transition:all 200ms ease-out;
+            -o-transition:all 200ms ease-out;
+            transition:all 200ms ease-out;
+        }
+
+        #aad-access-button.access-actions:hover {
+            background-color: #00a8ff;
+            border-color: #00a8ff;
+            color: #232a2a;
+        }
+
+        #sd-access-button.access-actions:hover {
+            background-color: #00a8ff;
+            border-color: #00a8ff;
+            color: #232a2a;
+        }
+        #aed-access-button.access-actions:hover {
+            background-color: #f00041;
+            border-color: #f00041;
+            color: #1e161b;
+        }
+
+        @media screen and (max-width: 880px) {
+            .login-aad {
+                position: absolute;
+                top: 0;
+                bottom: 50%;
+                left: 0;
+                right: 0;
+            }
+            .login-sd {
+                position: absolute;
+                top: 0;
+                bottom: 50%;
+                left: 0;
+                right: 0;
+            }
+            .login-aed {
+                position: absolute;
+                top: 50%;
+                bottom: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 50%;
+            }
+            .title-block{margin-bottom: 10px;}
+            .title-block h1 {
+                font-size: 1.2em;
+            }
+            .text-block {
+                font-size: 0.8em;
+                width: 288px;
+            }
+            .access-actions {
+                font-size: 0.8em;
+                line-height: 23px;
+                margin-top: 30px;
+            }
+            .aad-logo {
+                width: 80px;
+                height: 80px;
+                background-size: 80px 80px;
+            }
+            .sd-logo {
+                width: 80px;
+                height: 80px;
+                background-size: 80px 80px;
+            }
+            .aed-logo {
+                width: 80px;
+                height: 80px;
+                background-size: 80px 80px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div id="welcome"></div>
+<script src="information.js"></script>
+<script>
+    var timeOut;
+    var healthDashboard = '<div class="login-aad" id="login-content-aad"><div class="outer"><div class="middle"><div class="inner"><div class="aad-logo"></div><div class="title-block aad-title"><h1>CAST <em><span>Health</span> Dashboard</em></h1></div><div class="text-block"><p>The CAST dashboard is your single view into the health of your critical applications and the efficiency of your ADM teams and vendors.</p></div><a class="access-actions" id="aad-access-button" onclick="return clearTime();" href="portal/index.html">Access</a></div></div></div></div>'
+
+    var engineeringDashboard = '<div class="login-aed" id="login-content-aed"><div id="login-title-aed" class="login-title aed"><div class="outer"><div class="middle"><div class="inner"><div class="aed-logo"></div><div class="title-block aed-title"><h1>CAST <em><span>Engineering</span> Dashboard</em></h1></div><div class="text-block"><p>This dashboard enables you to drill-down into the violations, explanation of each rule, source code location and selection capability for planning.</p></div><a class="access-actions" id="aed-access-button" onclick="return clearTime();" href="engineering/index.html">Access</a></div></div></div></div></div>'
+
+    var securityDashboard = '<div class="login-sd" id="login-content-sd"><div class="outer"><div class="middle"><div class="inner"><div class="sd-logo"></div><div class="title-block sd-title"><h1>CAST <em><span>Security</span> Dashboard</em></h1></div><div class="text-block"><p>This dashboard enables you to deep dive into security violations, CWE Violations and view security specific tiles.</p></div><a class="access-actions" id="sd-access-button" onclick="return clearTime();" href="security/index.html">Access</a></div></div></div></div>'
+    welcome = document.getElementById('welcome');
+    if (window.AAD_AVAILABLE && window.AED_AVAILABLE) {
+        welcome.innerHTML = healthDashboard
+        welcome.innerHTML += engineeringDashboard
+    }
+    else if (window.SD_AVAILABLE && window.AED_AVAILABLE) {
+        welcome.innerHTML = securityDashboard
+        welcome.innerHTML += engineeringDashboard
+    }
+    else if (window.SD_AVAILABLE) {
+        window.location.assign("security/index.html");
+    }
+    else if (window.AED_AVAILABLE) {
+        window.location.assign("engineering/index.html");
+    }
+    else if (window.AAD_AVAILABLE){
+        window.location.assign("portal/index.html");
+    }
+    else {
+        window.location.assign("static/default.html");
+    }
+    var triggerLogin = function()
+    {
+        var req = new XMLHttpRequest();
+        var REST_URL = window.location.pathname + 'rest/server';
+
+        req.open('GET', REST_URL, true);
+        //alert(REST_URL);
+        req.onreadystatechange = function(event) {
+            // XMLHttpRequest.DONE === 4
+            if (this.readyState === XMLHttpRequest.DONE) {
+                if (this.status === 200)
+                {
+                    if(this.responseText.indexOf('href') >= 0)
+                    {
+                        var responseData = JSON.parse(this.responseText);
+                        var milliSecond = (responseData.sessionTimeout - 10) * 1000;
+                        timeOut = setTimeout(function(){ triggerLogin() }, milliSecond );
+                    }
+                    else
+                    {
+                        if (this.responseText.startsWith(location.protocol))
+                            location.replace(this.responseText);
+                    }
+                }
+            }
+        };
+
+        req.send(null);
+    }
+    triggerLogin();
+    function clearTime()
+    {
+        clearTimeout(timeOut);
+    }
+</script>
+</body>
+</html>
