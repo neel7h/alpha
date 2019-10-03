@@ -1,0 +1,35 @@
+property,label,value
+InstanceName,Instance Name,localhost
+SchemaName,Schema Name,banking_system_local
+Extension,com.castsoftware.wbslinker,1.6.4-funcrel
+Extension,com.castsoftware.webfilesdiscoverer,1.1.0
+Extension,com.castsoftware.dmtxmlscanner,1.2.0
+Extension,com.castsoftware.dotnet,1.0.5
+Extension,com.castsoftware.html5,2.0.2-funcrel
+Extension,com.castsoftware.internal.platform,0.8.1-funcrel
+Extension,com.castsoftware.jaxrs,1.3.1
+Extension,com.castsoftware.jee,1.2.0-beta1
+Extension,com.castsoftware.jquery,1.6.0
+Extension,com.castsoftware.nodejs,1.6.0
+Extension,com.castsoftware.qualitystandards,20190304.0.0-funcrel
+Extension,com.castsoftware.springmvc,1.5.2
+Extension,com.castsoftware.JEE-MavenHttp,2.0.2
+Extension,com.castsoftware.angularjs,2.0.0-funcrel
+Extension,com.castsoftware.businessobject,1.0.2
+Extension,com.castsoftware.cfamily,1.5.1-funcrel
+Extension,com.castsoftware.sqlanalyzer,2.3.9
+Extension,com.castsoftware.uc.AnalysisCompletenessReport,1.0.0
+Extension,com.castsoftware.uc.AppBoundariesEntry-EndPoints,1.0.0
+Extension,com.castsoftware.uc.MissingLinkTransaction,1.0.0
+Extension,com.castsoftware.uc.TransactionCompleteness,1.0.0
+Extension,com.castsoftware.uc.artifactsnotinmodulesreport,1.0.0
+Extension,com.castsoftware.uc.checkanalysiscompleteness,0.4.0
+Extension,com.castsoftware.uc.moduleoverlapreport,1.0.0
+Extension,com.castsoftware.uc.suspiciouscodeincentralreport,1.0.2
+Extension,com.castsoftware.dmtboextractiondiscoverer,1.0.0
+Extension,com.castsoftware.dmtxcodediscoverer,1.1.0
+AIP Version,AIP Version,8.3.9.1
+Size,Lines of code,22037
+Complexity,Number of Decision Points,1908
+Count,Number of Artifacts,483
+ApplicationName,Application Name From KB,Banking system
